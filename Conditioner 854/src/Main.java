@@ -12,19 +12,33 @@ public class Main {
         int tc = sc.nextInt();
         String cond = sc.next();
         int temp = 0;
-        switch (cond) {
-            case "freeze":
-                temp = tr;
-                break;
-            case "heat":
+        if (cond.equals("freeze"))
+        {
+            if (tr<=tc)
+            {
+                temp = tr;}
+            else
+            {
                 temp = tc;
-                break;
-            case "auto":
+            }
+        }
+        else if (cond.equals("heat"))
+        {
+            if (tr>=tc)
+            {
+                temp = tr;}
+            else
+            {
                 temp = tc;
-                break;
-            case "fan":
-                temp = tr;
-                break;
+            }
+        }
+        else if (cond.equals("auto"))
+        {
+             temp = tc;
+        }
+        else if (cond.equals("fan"))
+        {
+             temp = tr;
         }
      String s = String.valueOf(temp);
       Files.writeString(Path.of("OUTPUT.TXT"), s);
